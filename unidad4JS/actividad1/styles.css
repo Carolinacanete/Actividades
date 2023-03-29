@@ -1,0 +1,20 @@
+.caja1 {
+    background-color: aqua;
+    width: 150px;
+    height: 150px;
+}
+.caja2 {
+    background-color: forestgreen;
+    width: 150px;
+    height: 150px;
+}
+.caja3 {
+    background-color: blue;
+    width: 150px;
+    height: 150px;
+}
+.container {
+    display:flex;
+    flex-direction:row;
+
+}
