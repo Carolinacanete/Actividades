@@ -1,0 +1,25 @@
+.color {
+    background-image: url("cordoba5.jpg");
+    background-size: cover;
+    
+}
+.letra {
+    color: rgb(237, 237, 243);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+}
+.fondo-negro {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+}
+
+#imagen-principal {
+    margin-top: 20px;
+}
+#img-titulo {
+    width: 150px;
+    
+}
+#titulo {
+    text-align: center;
+}
