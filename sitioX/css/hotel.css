@@ -1,9 +1,5 @@
-footer {
-    background-color: cadetblue;
-}
-body {
-    font-family: 'Rubik', sans-serif;
-}
+/* index.html */
+
 #home {
 background-image:url("../img/hotel1.jpg");
  background-size:cover;
@@ -33,20 +29,55 @@ background-image:url("../img/hotel1.jpg");
 }
 .fondo {
     background-color: rgba(240, 232, 232, 0.5);
-    
-    
 }
+.testimonio {
+    padding: 30px;
+}
+/* index.html */
+/* generales */
 h1 {
 color: rgb(2, 29, 85);
 }
-
-.testimonio {
-    padding: 30px;
-    
+footer {
+    background-color: cadetblue;
 }
-.posicion {
-margin-top: 50px;
-background-image:url("../img/fuerte.jpg");
+body {
+    font-family: 'Rubik', sans-serif;
+}
+/* generales */
+/* ubicacion */
+.mapa iframe {
+    width: 100%;
+    aspect-ratio: 1.2;
+}
+#ubicacion {
+    margin-top: 50px;
+background-image:url("../img/calafate.jpg");
  background-size:cover;
-
+}
+/* ubicacion */
+/* nosotros */
+.nosotros {
+    background-image:url("../img/fuerte.jpg");
+    background-size:cover;
+    height: 50vh;
+ min-height:700px;
+}
+/* nosotros */
+/* contactanos */
+.contactanos {
+    height: 50vh;
+ min-height:700px;
+ 
+}
+#contactanos-titulo { 
+margin-top: 70px;
+}
+#container-contactanos {
+    background-image:url("../img/glaciar.jpg");
+    background-size:cover;
+}
+/* contactanos */
+footer p {
+    margin-bottom: 0px;
 }
