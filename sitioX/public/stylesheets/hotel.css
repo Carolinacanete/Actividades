@@ -1,7 +1,7 @@
 /* index.html */
 
 #home {
-background-image:url("../img/hotel1.jpg");
+background-image:url("../images/hotel1.jpg");
  background-size:cover;
  height: 50vh;
  min-height:700px;
@@ -52,13 +52,13 @@ body {
 }
 #ubicacion {
     margin-top: 50px;
-background-image:url("../img/calafate.jpg");
+background-image:url("../images/calafate.jpg");
  background-size:cover;
 }
 /* ubicacion */
 /* nosotros */
 .nosotros {
-    background-image:url("../img/fuerte.jpg");
+    background-image:url("../images/fuerte.jpg");
     background-size:cover;
     height: 50vh;
  min-height:700px;
@@ -74,7 +74,7 @@ background-image:url("../img/calafate.jpg");
 margin-top: 70px;
 }
 #container-contactanos {
-    background-image:url("../img/glaciar.jpg");
+    background-image:url("../images/glaciar.jpg");
     background-size:cover;
 }
 /* contactanos */
