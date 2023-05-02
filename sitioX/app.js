@@ -6,11 +6,16 @@ var logger = require('morgan');
 
 require('dotenv').config();
 
+const session=require ('express-session');
+
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var contactanosRouter = require('./routes/contactanos');
 
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +26,39 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: '1agjjkuuyyhhjkkmjjjjjj',
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.get('/tarea', function (req, res){
+  var conocido= Boolean (req.session.nombre);
+  var menor=req.session.edad <18
+
+  res.render('tarea', {
+    titulo: 'sesiones',
+    conocido: conocido,
+    nombre:req.session.nombre,
+    menor:menor
+  })
+})
+
+app.post('/ingresar', function (req, res) {
+  if (req.body.nombre) {
+    req.session.nombre=req.body.nombre
+  }
+  if (req.body.edad) {
+    req.session.edad=req.body.edad
+  }
+  res.redirect('/tarea');
+})
+
+app.get('/salir', function (req,res){
+  req.session.destroy();
+  res.redirect('/tarea')
+})
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -33,6 +71,7 @@ app.get('/sobre-el-hotel', function (req,res){
 app.get('/ubicacion', function (req,res){
   res.render ("ubicacion")
 })
+
 
 
 // catch 404 and forward to error handler
