@@ -6,16 +6,13 @@ var logger = require('morgan');
 
 require('dotenv').config();
 
-const session=require ('express-session');
-
-
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var contactanosRouter = require('./routes/contactanos');
 
 var app = express();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,29 +30,31 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.get('/tarea', function (req, res){
-  var conocido= Boolean (req.session.nombre);
-  var menor=req.session.edad <18
+require("./ejemplosBD");
+
+app.get('/tarea', function (req, res) {
+  var conocido = Boolean(req.session.nombre);
+  var menor = req.session.edad < 18
 
   res.render('tarea', {
     titulo: 'sesiones',
     conocido: conocido,
-    nombre:req.session.nombre,
-    menor:menor
+    nombre: req.session.nombre,
+    menor: menor
   })
 })
 
 app.post('/ingresar', function (req, res) {
   if (req.body.nombre) {
-    req.session.nombre=req.body.nombre
+    req.session.nombre = req.body.nombre
   }
   if (req.body.edad) {
-    req.session.edad=req.body.edad
+    req.session.edad = req.body.edad
   }
   res.redirect('/tarea');
 })
 
-app.get('/salir', function (req,res){
+app.get('/salir', function (req, res) {
   req.session.destroy();
   res.redirect('/tarea')
 })
@@ -64,23 +63,23 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/contactanos', contactanosRouter);
 
-app.get('/sobre-el-hotel', function (req,res){
-  res.render ("sobre-el-hotel")
+app.get('/sobre-el-hotel', function (req, res) {
+  res.render("sobre-el-hotel")
 })
 
-app.get('/ubicacion', function (req,res){
-  res.render ("ubicacion")
+app.get('/ubicacion', function (req, res) {
+  res.render("ubicacion")
 })
 
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
